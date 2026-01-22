@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interlace - Shop Authentic Xinfan Palm Weaving Crafts | Chinese Intangible Cultural Heritage">
+    <title>Interlace | Shop Traditional Palm Weaving Art</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Aeterna Weave</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <h1 class="logo">Aeterna Weave</h1>
+                <span class="subtitle">不祧织棕</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#featured">Shop</a></li>
+                <li><a href="#showcase">3D Gallery</a></li>
+                <li><a href="#heritage">Our Story</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-switch">中文</button>
+                <a href="login.html" class="login-btn">Login</a>
+                <button class="cart-btn">
+                    <span class="cart-icon">🛒</span>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Carousel -->
+    <section id="home" class="hero">
+        <div class="hero-carousel">
+            <!-- Slide 1: Mouse Theme -->
+            <div class="hero-slide active">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="badge">🎁 Free Shipping on Orders Over $50</span>
+                        <h2 class="hero-title">Handcrafted Palm Art<br>From Ancient China</h2>
+                        <p class="hero-description">Authentic Xinfan palm weaving - Over 200 years of traditional craftsmanship since the Qing Dynasty</p>
+                        <div class="hero-price-range">
+                            <span class="price-label">Starting from</span>
+                            <span class="price-value">$45.99</span>
+                        </div>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="document.getElementById('featured').scrollIntoView({behavior: 'smooth'})">Shop Now</button>
+                            <button class="btn btn-secondary" onclick="document.getElementById('heritage').scrollIntoView({behavior: 'smooth'})">Our Story</button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/hero/Mouse.png" alt="Palm Woven Mouse">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Pinecone Theme -->
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="badge">⭐ Premium Collection</span>
+                        <h2 class="hero-title">Natural Pinecone<br>Nature's Beauty</h2>
+                        <p class="hero-description">Exquisitely crafted pinecone pieces - Capturing the essence of nature in traditional palm art</p>
+                        <div class="hero-price-range">
+                            <span class="price-label">Premium from</span>
+                            <span class="price-value">$38.99</span>
+                        </div>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="document.getElementById('featured').scrollIntoView({behavior: 'smooth'})">View Collection</button>
+                            <button class="btn btn-secondary" onclick="document.getElementById('showcase').scrollIntoView({behavior: 'smooth'})">Gallery</button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/hero/Pinecone.png" alt="Palm Woven Pinecone">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Rose Theme -->
+            <div class="hero-slide">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <span class="badge">✨ New Arrival</span>
+                        <h2 class="hero-title">Elegant Rose<br>Timeless Romance</h2>
+                        <p class="hero-description">Limited edition rose collection - Symbol of love and beauty, exclusively handcrafted</p>
+                        <div class="hero-price-range">
+                            <span class="price-label">Exclusive at</span>
+                            <span class="price-value">$42.99</span>
+                        </div>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary" onclick="document.getElementById('featured').scrollIntoView({behavior: 'smooth'})">Shop Limited Edition</button>
+                            <button class="btn btn-secondary" onclick="document.getElementById('heritage').scrollIntoView({behavior: 'smooth'})">Our Heritage</button>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="images/hero/Rose.png" alt="Palm Woven Rose">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control prev" aria-label="Previous slide">‹</button>
+        <button class="carousel-control next" aria-label="Next slide">›</button>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>Discover More</span>
+            <div class="scroll-arrow">↓</div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="featured" class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Best Sellers</span>
+                <h2 class="section-title">Featured Collection</h2>
+                <p class="section-subtitle">Handpicked masterpieces from our artisan collection</p>
+            </div>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="images/products/Peacock.png" alt="Palm Woven Peacock">
+                        <span class="featured-badge bestseller">🔥 Bestseller</span>
+                    </div>
+                    <div class="featured-info">
+                        <h3 class="featured-name">Palm Peacock</h3>
+                        <p class="featured-desc">Majestic peacock with stunning feather details, symbol of elegance</p>
+                        <div class="featured-features">
+                            <span class="feature-tag">✓ Handmade</span>
+                            <span class="feature-tag">✓ Eco-friendly</span>
+                        </div>
+                        <div class="featured-footer">
+                            <div class="price-section">
+                                <span class="featured-price">$85.99</span>
+                                <span class="price-note">Limited Stock</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart-featured">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="images/products/Carousel.png" alt="Palm Woven Carousel">
+                        <span class="featured-badge premium">⭐ Premium</span>
+                    </div>
+                    <div class="featured-info">
+                        <h3 class="featured-name">Palm Carousel</h3>
+                        <p class="featured-desc">Whimsical carousel design with intricate craftsmanship</p>
+                        <div class="featured-features">
+                            <span class="feature-tag">✓ Master Crafted</span>
+                            <span class="feature-tag">✓ Premium Quality</span>
+                        </div>
+                        <div class="featured-footer">
+                            <div class="price-section">
+                                <span class="featured-price">$94.99</span>
+                                <span class="price-note">Collector's Item</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart-featured">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="featured-card">
+                    <div class="featured-image">
+                        <img src="images/products/Vase.png" alt="Palm Woven Vase">
+                        <span class="featured-badge new">✨ New Arrival</span>
+                    </div>
+                    <div class="featured-info">
+                        <h3 class="featured-name">Palm Vase</h3>
+                        <p class="featured-desc">Elegant decorative vase, perfect for home décor</p>
+                        <div class="featured-features">
+                            <span class="feature-tag">✓ New Design</span>
+                            <span class="feature-tag">✓ Limited Edition</span>
+                        </div>
+                        <div class="featured-footer">
+                            <div class="price-section">
+                                <span class="featured-price">$79.99</span>
+                                <span class="price-note">Only 20 Left</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart-featured">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Showcase -->
+    <section id="showcase" class="gallery-showcase">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Visual Experience</span>
+                <h2 class="section-title">Artisan Gallery</h2>
+                <p class="section-subtitle">Experience our craftsmanship in stunning 3D detail</p>
+            </div>
+
+            <div class="gallery-products">
+                <!-- Product Card 1: Pinecone -->
+                <div class="gallery-product-card">
+                    <div class="gallery-product-visual">
+                        <div class="gif-wrapper">
+                            <img src="images/products/pinecone.gif" alt="3D Palm Woven Pinecone" class="product-3d-gif">
+                            <span class="product-badge new">✨ 3D View</span>
+                        </div>
+                    </div>
+                    <div class="gallery-product-info">
+                        <div class="product-category">Premium Collection</div>
+                        <h3 class="product-name">Palm Woven Pinecone</h3>
+                        <p class="product-description">Exquisitely crafted pinecone capturing nature's intricate beauty. Each scale is meticulously woven by hand, showcasing the pinnacle of traditional palm weaving artistry.</p>
+                        <div class="product-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">🌿</span>
+                                <span class="feature-text">100% Natural Palm</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✋</span>
+                                <span class="feature-text">Handcrafted</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📏</span>
+                                <span class="feature-text">12cm Height</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <span class="product-price">¥38.99</span>
+                                <span class="price-label">Limited Edition</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart-gallery" data-name="Palm Woven Pinecone" data-price="38.99" data-image="images/products/pinecone.gif">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2: Shrimp -->
+                <div class="gallery-product-card">
+                    <div class="gallery-product-visual">
+                        <div class="gif-wrapper">
+                            <img src="images/products/shrimp.gif" alt="3D Palm Woven Shrimp" class="product-3d-gif">
+                            <span class="product-badge premium">⭐ Premium</span>
+                        </div>
+                    </div>
+                    <div class="gallery-product-info">
+                        <div class="product-category">Master Crafted</div>
+                        <h3 class="product-name">Palm Woven Shrimp</h3>
+                        <p class="product-description">A masterpiece of marine artistry featuring intricate details from antennae to tail. This premium piece demonstrates the highest level of craftsmanship and patience.</p>
+                        <div class="product-features">
+                            <div class="feature-item">
+                                <span class="feature-icon">🎨</span>
+                                <span class="feature-text">Master Artisan</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">⏱️</span>
+                                <span class="feature-text">20+ Hours Work</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📏</span>
+                                <span class="feature-text">18cm Length</span>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price-section">
+                                <span class="product-price">¥65.99</span>
+                                <span class="price-label">Collector's Item</span>
+                            </div>
+                            <button class="btn btn-primary add-to-cart-gallery" data-name="Palm Woven Shrimp" data-price="65.99" data-image="images/products/shrimp.gif">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story (Heritage + Craftsmanship Combined) -->
+    <section id="heritage" class="heritage">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Story</span>
+                <h2 class="section-title">Heritage & Craftsmanship</h2>
+                <p class="section-subtitle">Over 200 years of tradition meets master artisan techniques</p>
+            </div>
+
+            <!-- Heritage Values -->
+            <div class="heritage-grid-simple">
+                <div class="heritage-card">
+                    <div class="card-icon">🏆</div>
+                    <h3>National Heritage</h3>
+                    <p>China National Intangible Cultural Heritage (2011), preserving 200 years of traditional techniques</p>
+                </div>
+                <div class="heritage-card">
+                    <div class="card-icon">👨‍🎨</div>
+                    <h3>Master Artisans</h3>
+                    <p>Each piece crafted by skilled artisans with decades of experience in traditional methods</p>
+                </div>
+                <div class="heritage-card">
+                    <div class="card-icon">🌿</div>
+                    <h3>100% Natural</h3>
+                    <p>Sustainable palm leaves, no chemicals, biodegradable - good for you and the planet</p>
+                </div>
+            </div>
+
+            <!-- Craftsmanship Process -->
+            <div class="craft-process-compact">
+                <div class="process-header">
+                    <h3 class="process-title">Our Artisan Process</h3>
+                    <a href="process.html" class="process-read-more">Read More →</a>
+                </div>
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h4>Selection</h4>
+                            <p>Premium palm leaves carefully selected for optimal texture</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                         <h4>Processing</h4>
+                            <p>Traditional drying and preparation techniques</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h4>Weaving</h4>
+                            <p>Meticulous hand-weaving strand by strand</p>
+                        </div>
+                    </div>
+                    <div class="process-step">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h4>Shaping</h4>
+                            <p>Sculpting the final form with expert precision</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="heritage-cta">
+                <h3>Every Purchase Supports Traditional Craftsmen</h3>
+                <p>Your order helps preserve this ancient art form for future generations</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Questions? We're Here to Help</h2>
+                    <p>Get in touch for product inquiries, custom orders, or wholesale opportunities</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <span class="icon">📧</span>
+                            <span>shop@xinfan-weaving.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📱</span>
+                            <span>+86 0113 0905</span>
+                        </div>
+                        <div class="contact-item">
+                            <span class="icon">📍</span>
+                            <span>Xinfan Town, Xindu District, Chengdu, Sichuan, China</span>
+                        </div>
+                    </div>
+                    <div class="shipping-info">
+                        <h4>🚚 Shipping Information</h4>
+                        <p>• Free shipping on orders over $50<br>
+                        • Worldwide delivery available<br>
+                        • Secure packaging guaranteed</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">YouTube</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <textarea placeholder="Your Message (Product inquiries, custom orders, etc.)" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Aeterna Weave</h3>
+                    <p>Authentic Xinfan Palm Weaving<br>National Cultural Heritage</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#featured">Featured Products</a></li>
+                        <li><a href="#products">All Products</a></li>
+                        <li><a href="#showcase">3D Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Payment Methods</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Stay Connected</h4>
+                    <p>Subscribe for exclusive offers and new arrivals</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aeterna Weave丨不祧织棕. Powered by Shopify | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
