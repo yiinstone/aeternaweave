@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initWishlist();
     initProductCompare();
     initBlogFilters();
+    initChatWidget(); // 初始化聊天窗口
 });
 
 // ==================== 导航栏滚动效果 ====================
@@ -685,4 +686,176 @@ function initBlogFilters() {
             });
         });
     });
+}
+
+// ==================== AI Chat Widget ====================
+function initChatWidget() {
+    const chatToggle = document.getElementById('chatToggle');
+    const chatWindow = document.getElementById('chatWindow');
+    const chatMinimize = document.getElementById('chatMinimize');
+    const chatInput = document.getElementById('chatInput');
+    const chatSend = document.getElementById('chatSend');
+    const chatMessages = document.getElementById('chatMessages');
+
+    if (!chatToggle || !chatWindow) return;
+
+    // 切换聊天窗口
+    chatToggle.addEventListener('click', () => {
+        chatToggle.classList.toggle('active');
+        chatWindow.classList.toggle('active');
+        if (chatWindow.classList.contains('active')) {
+            chatInput.focus();
+        }
+    });
+
+    // 最小化聊天窗口
+    if (chatMinimize) {
+        chatMinimize.addEventListener('click', () => {
+            chatToggle.classList.remove('active');
+            chatWindow.classList.remove('active');
+        });
+    }
+
+    // 发送消息
+    function sendMessage() {
+        const message = chatInput.value.trim();
+        if (!message) return;
+
+        // 添加用户消息
+        addMessage(message, 'user');
+        chatInput.value = '';
+
+        // 显示输入中指示器
+        showTypingIndicator();
+
+        // 调用扣子API
+        callCozeAPI(message);
+    }
+
+    // 发送按钮点击
+    chatSend.addEventListener('click', sendMessage);
+
+    // 回车发送
+    chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // 添加消息到聊天窗口
+    function addMessage(text, type) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `chat-message ${type}-message`;
+
+        const avatar = document.createElement('div');
+        avatar.className = 'message-avatar';
+        avatar.textContent = type === 'user' ? '👤' : '🤖';
+
+        const content = document.createElement('div');
+        content.className = 'message-content';
+
+        const p = document.createElement('p');
+        p.textContent = text;
+
+        const time = document.createElement('span');
+        time.className = 'message-time';
+        time.textContent = getCurrentTime();
+
+        content.appendChild(p);
+        content.appendChild(time);
+        messageDiv.appendChild(avatar);
+        messageDiv.appendChild(content);
+
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // 显示输入中指示器
+    function showTypingIndicator() {
+        const indicator = document.createElement('div');
+        indicator.className = 'chat-message bot-message typing-indicator-wrapper';
+        indicator.id = 'typingIndicator';
+        indicator.innerHTML = `
+            <div class="message-avatar">🤖</div>
+            <div class="message-content">
+                <div class="typing-indicator">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        `;
+        chatMessages.appendChild(indicator);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // 移除输入中指示器
+    function removeTypingIndicator() {
+        const indicator = document.getElementById('typingIndicator');
+        if (indicator) {
+            indicator.remove();
+        }
+    }
+
+    // 获取当前时间
+    function getCurrentTime() {
+        const now = new Date();
+        return now.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' });
+    }
+
+    // 调用扣子API
+    async function callCozeAPI(message) {
+        // 这里需要替换为你的扣子API配置
+        const COZE_API_URL = 'YOUR_COZE_API_URL'; // 替换为你的扣子API地址
+        const COZE_BOT_ID = 'YOUR_BOT_ID'; // 替换为你的Bot ID
+        const COZE_API_TOKEN = 'YOUR_API_TOKEN'; // 替换为你的API Token
+
+        try {
+            const response = await fetch(COZE_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${COZE_API_TOKEN}`
+                },
+                body: JSON.stringify({
+                    bot_id: COZE_BOT_ID,
+                    user_id: 'user_' + Date.now(),
+                    query: message,
+                    stream: false
+                })
+            });
+
+            removeTypingIndicator();
+
+            if (!response.ok) {
+                throw new Error('API请求失败');
+            }
+
+            const data = await response.json();
+
+            // 根据扣子API的响应格式提取回复内容
+            // 这里需要根据实际的API响应格式调整
+            const botReply = data.messages?.[0]?.content || data.reply || '抱歉，我现在无法回答。';
+
+            addMessage(botReply, 'bot');
+
+        } catch (error) {
+            console.error('API调用错误:', error);
+            removeTypingIndicator();
+
+            // 如果API未配置或调用失败，显示模拟回复
+            const mockReplies = [
+                '您好！我是Aeterna Weave的智能助手。关于棕编工艺品，我可以为您介绍产品特点、制作工艺、价格信息等。请问有什么可以帮助您的吗？',
+                '我们的棕编工艺品都是由经验丰富的手工艺人精心制作，每一件都是独一无二的艺术品。',
+                '如需了解更多产品信息或下单，请随时告诉我！',
+                '我们提供全球配送服务，订单满$50免运费哦！'
+            ];
+
+            const randomReply = mockReplies[Math.floor(Math.random() * mockReplies.length)];
+
+            setTimeout(() => {
+                addMessage(randomReply, 'bot');
+            }, 1000);
+        }
+    }
 }
